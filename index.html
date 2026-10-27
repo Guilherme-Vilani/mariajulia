@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Botão que foge</title>
+
+    <style>
+        h1 {
+            justify-content: center;
+            display: flex;
+            align-items: start;
+            height: 100vh;
+            margin-top: 150px;
+            color: white;
+        }
+
+        body {
+            background-color: red;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+
+        #meuBotaoNao {
+            padding: 15px 30px;
+            background-color: black;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            cursor: pointer;
+
+            position: fixed;
+            left: 30%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            transition: left 0.2s, top 0.2s;
+        }
+
+        #meuBotaoSim {
+            padding: 15px 30px;
+            background-color: black;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            cursor: pointer;
+
+            position: fixed;
+            /* left: 50%; */
+            /* top: 50%; */
+            transform: translate(-50%, -50%);
+            transition: left 0.2s, top 0.2s;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>ACEITA NAMORAR COMIGO?</h1>
+
+    <div style="display: flex;">
+        <button id="meuBotaoNao">NÃO, VAZA DAQUI OVO MOLE</button>
+        <button id="meuBotaoSim">SIM, MEU AMORZINHO</button>
+    </div>
+
+    <script>
+        const botao = document.getElementById("meuBotaoNao");
+
+        botao.addEventListener("mouseenter", () => {
+            const largura = botao.offsetWidth;
+            const altura = botao.offsetHeight;
+
+            const maxX = window.innerWidth - largura;
+            const maxY = window.innerHeight - altura;
+
+            const x = Math.random() * maxX;
+            const y = Math.random() * maxY;
+
+            botao.style.transform = "none";
+            botao.style.left = x + "px";
+            botao.style.top = y + "px";
+        });
+    </script>
+
+</body>
+
+</html>
